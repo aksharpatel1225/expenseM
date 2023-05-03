@@ -1,0 +1,107 @@
+<!-- Register page -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expense Manager | Registration Page</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  {% comment %} <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css"> {% endcomment %}
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/icheck/icheck-bootstrap.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/admin/adminlte.min.css' %}">
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
+    <a href="../../index2.html"><b>Expense</b>Manager</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Register a new membership</p>
+
+        <form method="post">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            {{ form.fullname }}
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            {% comment %} <input type="email" class="form-control" name="email" placeholder="Email" > {% endcomment %}
+            {{ form.email }}
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            {% comment %} <input type="password" class="form-control" placeholder="Password" name="password1"> {% endcomment %}
+            {{ form.password1 }}
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            {% comment %} <input type="password" class="form-control" placeholder="Retype password" name="password2"> {% endcomment %}
+            {{ form.password2 }}
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="agreeTerms" value="agree">
+                <label for="agreeTerms">
+                 I agree to the <a href="#">terms</a>
+                </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              {% comment %} <button type="submit" class="btn btn-primary btn-block">Register</button> {% endcomment %}
+              <input type="submit" value="Register" class="btn btn-primary btn-block">
+            </div>
+            <!-- /.col -->
+          </div>
+      </form>
+      <p class="mb-0">
+        <a href="{% url 'login' %}" class="text-center">Already have a membership</a>
+      </p>
+      </div>
+    </div>
+   
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+
+<!-- jQuery -->
+<script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'js/admin/adminlte.min.js' %}"></script>
+</body>
+</html>

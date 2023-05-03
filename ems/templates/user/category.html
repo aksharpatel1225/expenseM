@@ -1,0 +1,348 @@
+{% comment %} List of expense page  {% endcomment %}
+{% load static %}
+
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+            <!-- Font Awesome -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+            <!-- Ionicons -->
+            <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <!-- icheck bootstrap -->
+            <link rel="stylesheet" type="text/css" href="{% static 'css/icheck/icheck-bootstrap.min.css' %}">
+            <!-- Theme style -->
+            <link rel="stylesheet" type="text/css" href="{% static 'css/admin/adminlte.min.css' %}">
+
+        </head>
+        <body>
+            <div class="card-header" <h3="" style="font-size: 55px;background-color:#007BFF;">Categories for Expenses
+            
+            <h3 class=" card-title" =""="" style="font-size: 50px;">
+
+                <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <a href="{% url 'dashboard' %}" class="nav-link active">
+                
+                </button>
+                </div>
+            </div>
+        
+                <section
+                    class="elementor-section elementor-top-section elementor-element elementor-element-f66ca98 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                    data-id="f66ca98" data-element_type="section">
+                    <div class="elementor-container elementor-column-gap-default">
+                        <div class="elementor-row">
+                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-27cb60c"
+                                data-id="27cb60c" data-element_type="column">
+                                <div class="elementor-column-wrap elementor-element-populated" style="font-size: 30px;">
+                                    <div class="elementor-widget-wrap">
+                                        <section
+                                            class="elementor-section elementor-inner-section elementor-element elementor-element-45babf2 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                            data-id="45babf2" data-element_type="section">
+                                            <div class="elementor-container elementor-column-gap-default">
+                                                <div class="elementor-row">
+                                                    <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-223a84e"
+                                                        data-id="223a84e" data-element_type="column">
+                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                            <div class="elementor-widget-wrap">
+                                                                <div class="elementor-element elementor-element-f08aefa elementor-widget elementor-widget-text-editor"
+                                                                    data-id="f08aefa" data-element_type="widget"
+                                                                    data-widget_type="text-editor.default">
+                                                                    <div class="elementor-widget-container">
+                                                                        <div class="elementor-text-editor elementor-clearfix">
+                                                                            <h4>Housing</h4>
+                                                                            <ul>
+                                                                                <li>Mortgage</li>
+                                                                                <li>Rent</li>
+                                                                                <li>Home insurance</li>
+                                                                                <li>Property tax</li>
+                                                                                <li>HOA</li>
+                                                                                <li>Home Maintenance</li>
+                                                                                <li>Home Improvement</li>
+                                                                                <li>Home Security</li>
+                                                                            </ul>
+                                                                            <h4>Transportation</h4>
+                                                                            <ul>
+                                                                                <li>Auto loan</li>
+                                                                                <li>Registration</li>
+                                                                                <li>Gas</li>
+                                                                                <li>Road/Bridge toll</li>
+                                                                                <li>Auto maintenance<ul>
+                                                                                        <li>Oil changes</li>
+                                                                                        <li>Tires</li>
+                                                                                        <li>Larger service (brakes, fluids, etc.)</li>
+                                                                                        <li>Auto repair (estimate based on
+                                                                                            make/model/year of car)</li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                                <li>Public transportation</li>
+                                                                                <li>Parking</li>
+                                                                                <li>Roadside assistance (onstar)</li>
+                                                                                <li>Other forms of transportation and associated
+                                                                                    maintenance (bike, motorcycle, recreation vehicles)
+                                                                                </li>
+                                                                            </ul>
+                                                                            <h4>Taxes</h4>
+                                                                            <ul>
+                                                                                <li>Federal income</li>
+                                                                                <li>State</li>
+                                                                                <li>Property</li>
+                                                                                <li>Business</li>
+                                                                                <li>Accountant fees</li>
+                                                                                <li>Filing fees</li>
+                                                                            </ul>
+                                                                            <h4>Food</h4>
+                                                                            <ul>
+                                                                                <li>Groceries</li>
+                                                                                <li>Restaurants</li>
+                                                                                <li>Fast food</li>
+                                                                                <li>Work meals (cafeteria/eating out because you don’t
+                                                                                    have a lunch or choose to not eat it)</li>
+                                                                                <li>Meal service</li>
+                                                                                <li>Children’s hot school lunches</li>
+                                                                                <li>Coffee shops</li>
+                                                                                <li>Alcohol</li>
+                                                                            </ul>
+                                                                            <h4>Child Expenses</h4>
+                                                                            <ul>
+                                                                                <li>Childcare</li>
+                                                                                <li>School tuition</li>
+                                                                                <li>After school activities</li>
+                                                                                <li>Sports<ul>
+                                                                                        <li>Gear and clothing</li>
+                                                                                        <li>Sign up</li>
+                                                                                        <li>Travel</li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                                <li>Summer camps</li>
+                                                                                <li>Toys</li>
+                                                                                <li>Allowance</li>
+                                                                                <li>Baby expenses<ul>
+                                                                                        <li>Diapers/bottles/etc.</li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                                <li>School supplies</li>
+                                                                                <li>Child support</li>
+                                                                            </ul>
+                                                                            <h4>Healthcare</h4>
+                                                                            <ul>
+                                                                                <li>Copays</li>
+                                                                                <li>Doctor’s office visits</li>
+                                                                                <li>Specialty care</li>
+                                                                                <li>Mental health visits</li>
+                                                                                <li>Dental care</li>
+                                                                                <li>Vision care</li>
+                                                                                <li>Prescriptions</li>
+                                                                                <li>Over the counter medications</li>
+                                                                                <li>Vitamins/ supplements</li>
+                                                                            </ul>
+                                                                            <h4>Insurance</h4>
+                                                                            <ul>
+                                                                                <li>Medical</li>
+                                                                                <li>Dental</li>
+                                                                                <li>Vision</li>
+                                                                                <li>Health Savings Account (HSA)</li>
+                                                                                <li>Flexible Spending Account (FSA) for health or
+                                                                                    childcare</li>
+                                                                                <li>Home</li>
+                                                                                <li>Private mortgage insurance</li>
+                                                                                <li>Personal property (valuables)</li>
+                                                                                <li>Renters</li>
+                                                                                <li>Pet</li>
+                                                                                <li>Auto</li>
+                                                                                <li>Life</li>
+                                                                                <li>Disability</li>
+                                                                                <li>Long-term care</li>
+                                                                            </ul>
+                                                                            <h4>Utilities</h4>
+                                                                            <ul>
+                                                                                <li>Electric</li>
+                                                                                <li>Gas</li>
+                                                                                <li>Phone</li>
+                                                                                <li>Cable</li>
+                                                                                <li>Internet</li>
+                                                                                <li>Water</li>
+                                                                                <li>Sewer</li>
+                                                                                <li>Trash</li>
+                                                                                <li>Recycling</li>
+                                                                                <li>Yard waste</li>
+                                                                            </ul>
+                                                                            <h4>Miscellaneous</h4>
+                                                                            <ul>
+                                                                                <li>Anything that doesn’t quite fit into any category
+                                                                                </li>
+                                                                                <li>Unusual, non-recurring expenses</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-601dc6e"
+                                                        data-id="601dc6e" data-element_type="column">
+                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                            <div class="elementor-widget-wrap">
+                                                                <div class="elementor-element elementor-element-449dacf elementor-widget elementor-widget-text-editor"
+                                                                    data-id="449dacf" data-element_type="widget"
+                                                                    data-widget_type="text-editor.default">
+                                                                    <div class="elementor-widget-container">
+                                                                        <div class="elementor-text-editor elementor-clearfix">
+                                                                            <h4>Consumer Debt</h4>
+                                                                            <ul>
+                                                                                <li>Interest payments</li>
+                                                                                <li>Additional payments beyond minimum due</li>
+                                                                            </ul>
+                                                                            <h4>Personal Care</h4>
+                                                                            <ul>
+                                                                                <li>Haircuts</li>
+                                                                                <li>Hair color</li>
+                                                                                <li>Nail salon</li>
+                                                                                <li>Massage/Spa</li>
+                                                                                <li>Beauty products</li>
+                                                                                <li>Acupuncture</li>
+                                                                            </ul>
+                                                                            <h4>Pets</h4>
+                                                                            <ul>
+                                                                                <li>Food</li>
+                                                                                <li>Veterinary care</li>
+                                                                                <li>Medications</li>
+                                                                                <li>Bedding</li>
+                                                                                <li>Toys</li>
+                                                                                <li>Daycare</li>
+                                                                                <li>Pet sitter/dog walking</li>
+                                                                            </ul>
+                                                                            <h4>Giving</h4>
+                                                                            <ul>
+                                                                                <li>Charities</li>
+                                                                                <li>Church</li>
+                                                                                <li>Political</li>
+                                                                            </ul>
+                                                                            <h4>Clothes</h4>
+                                                                            <ul>
+                                                                                <li>New clothes</li>
+                                                                                <li>School clothes</li>
+                                                                                <li>Professional clothes</li>
+                                                                                <li>Uniform</li>
+                                                                                <li>Dry cleaning</li>
+                                                                            </ul>
+                                                                            <h4>Home Supplies</h4>
+                                                                            <ul>
+                                                                                <li>Cleaning supplies</li>
+                                                                                <li>General household supplies</li>
+                                                                                <li>Office products</li>
+                                                                                <li>Furniture</li>
+                                                                                <li>Bedding/decor</li>
+                                                                                <li>Pool/yard care</li>
+                                                                                <li>Tools</li>
+                                                                            </ul>
+                                                                            <h4>Gifts</h4>
+                                                                            <ul>
+                                                                                <li>Holiday</li>
+                                                                                <li>Birthday</li>
+                                                                                <li>Wedding/shower</li>
+                                                                                <li>Service worker gifts (teacher, admin, coach)</li>
+                                                                            </ul>
+                                                                            <h4>Fun</h4>
+                                                                            <ul>
+                                                                                <li>Going out</li>
+                                                                                <li>Events</li>
+                                                                                <li>Travel</li>
+                                                                                <li>Hobbies</li>
+                                                                                <li>Hosting/entertaining</li>
+                                                                                <li>Books</li>
+                                                                                <li>New technology</li>
+                                                                            </ul>
+                                                                            <h4>Services/Memberships</h4>
+                                                                            <ul>
+                                                                                <li>Yard care</li>
+                                                                                <li>House cleaning service</li>
+                                                                                <li>Meal delivery services</li>
+                                                                                <li>Gym</li>
+                                                                                <li>Magazines</li>
+                                                                                <li>Professional society dues</li>
+                                                                                <li>Music (spotify/pandora etc.)</li>
+                                                                                <li>TV streaming services (HULU, Netflix, etc.)</li>
+                                                                                <li>Amazon Prime</li>
+                                                                                <li>Costco</li>
+                                                                                <li>Software subscriptions</li>
+                                                                                <li>Identity theft</li>
+                                                                            </ul>
+                                                                            <h4>Income</h4>
+                                                                            <ul>
+                                                                                <li>W2 Income</li>
+                                                                                <li>Spousal support</li>
+                                                                                <li>Child support</li>
+                                                                                <li>Social security benefits</li>
+                                                                                <li>Side hustle income</li>
+                                                                                <li>Investment income</li>
+                                                                                <li>Bonuses</li>
+                                                                                <li>Reimbursed job expenses</li>
+                                                                                <li>Tips</li>
+                                                                                <li>Gifts</li>
+                                                                            </ul>
+                                                                            <h4>Savings</h4>
+                                                                            <ul>
+                                                                                <li>Emergency fund</li>
+                                                                                <li>Investing fund</li>
+                                                                                <li>Home fund (down payment, improvements, large
+                                                                                    repairs)</li>
+                                                                                <li>College savings</li>
+                                                                                <li>Fun savings</li>
+                                                                                <li>Gift savings</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <a href="{% url 'dashboard' %}" class="button">Back to Dashboard</a>
+                <style>
+                .button {
+                    display: inline-block;
+                    padding: 10px 20px;
+                    background-color: #007bff;
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-size: 20px;
+                }
+                
+                .button:hover {
+                    background-color: #0069d9;
+                }
+                </style>
+
+        
+            <!-- jQuery -->
+            <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+            <!-- Bootstrap 4 -->
+            <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+            <!-- ChartJS -->
+            <script src="{% static 'js/chart/Chart.min.js' %}"></script>
+            <!-- AdminLTE App -->
+            <script src="{% static 'js/admin/adminlte.min.js' %}"></script>
+
+            <script>
+        </body>
+</html>

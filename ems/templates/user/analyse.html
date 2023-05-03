@@ -1,0 +1,165 @@
+{% comment %} chart/analyse page {% endcomment %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/icheck/icheck-bootstrap.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin/adminlte.min.css' %}">
+
+    <style>
+      #pie-chart {
+          border: 1px solid #ccc;
+          border-radius: 50%;
+        }
+        .values {
+          display: flex;
+        }
+        .value {
+          height: 50px; 
+          color: #fff;
+          font-size: 24px;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 10px;
+        }
+        
+        .element.style {
+      padding-left: 40pc;
+      padding-top: 16pc;
+        }
+        
+        
+  </style>
+</head>
+<body>
+    <!-- DONUT CHART -->
+    {% comment %} 
+     {% endcomment %}
+    
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+    <!-- ChartJS -->
+    <script src="{% static 'js/chart/Chart.min.js' %}"></script>
+    <!-- AdminLTE App -->
+    <script src="{% static 'js/admin/adminlte.min.js' %}"></script>
+
+    <script>
+      $(function () {
+    
+        //-------------
+        //- DONUT CHART -
+        //-------------
+        // Get context with jQuery - using jQuery's .get() method.
+        var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+        var donutData        = {
+          labels: [
+              'Income',
+              'Safe to spend',
+              'Expense',
+          ],
+          datasets: [
+            {
+              data: {{ chart_data }},
+              backgroundColor : ['#00c0ef', '#00a65a', '#f56954'],
+            }
+          ]
+        }
+        var donutOptions     = {
+          maintainAspectRatio : false,
+          responsive : true,
+        }
+        //Create pie or douhnut chart
+        // You can switch between pie and douhnut using the method below.
+        new Chart(donutChartCanvas, {
+          type: 'doughnut',
+          data: donutData,
+          options: donutOptions
+        })
+      })
+    </script>
+    <style>
+      .income-expense-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 100%;
+      }
+    
+      .income-block, .expense-block, .safe-block {
+        flex-basis: 45%;
+        text-align: center;
+      }
+    
+      .income-amount, .expense-amount,.safe-amount {
+        font-size: 28px;
+        font-weight: bold;
+        margin: 0;
+      }
+      .safe-amount {
+        color: rgb(0, 255, 26);
+      }
+    
+      .income-amount {
+        color: rgb(0, 0, 0);
+      }
+    
+      .expense-amount {
+        color: rgb(250, 61, 61);
+      }
+    </style>
+
+    <div class="income-expense-wrapper" style="padding-top: 160px;padding-bottom: 70px;">
+      <div class="income-block">
+        <h2>Income</h2>
+        <p class="income-amount">{{ user_income }} /-</p>
+      </div>
+      <div class="spend-block">
+        <h2>Safe to Spend</h2>
+        <p class="safe-amount">{{ safe_amount }} /-</p>
+      </div>
+      <div class="expense-block">
+        <h2>Expense</h2>
+        <p class="expense-amount">{{ user_expenses }} /-</p>
+      </div>
+     </div>
+     <a href="{% url 'dashboard' %}" class="button">Back to Dashboard</a>
+     <style>
+       .button {
+         display: inline-block;
+         padding: 10px 20px;
+         background-color: #007bff;
+         color: #fff;
+         text-decoration: none;
+         border-radius: 5px;
+         font-size: 20px;
+       }
+       
+       .button:hover {
+         background-color: #0069d9;
+       }
+     </style>
+</body>
+</html>

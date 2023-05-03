@@ -1,0 +1,131 @@
+{% comment %} Transacation history page {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/icheck/icheck-bootstrap.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin/adminlte.min.css' %}">
+    <title>Transcation History</title>
+</head>
+<body>
+    
+</body>
+</html>
+<style>
+    .table:not(.table-dark) {
+        color: inherit;
+    }
+    .text-nowrap {
+        white-space: nowrap!important;
+    }
+    .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+        background-color: transparent;
+    }
+    .text-nowrap {
+        white-space: nowrap!important;
+    }
+    .table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        background-color: transparent;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+    user agent stylesheet
+    table {
+        display: table;
+        border-collapse: separate;
+        box-sizing: border-box;
+        text-indent: initial;
+        border-spacing: 2px;
+        border-color: gray;
+    }
+</style>
+
+<div class="card-header" style="background-color: #007bff;font-size: 50px;" ;="" <h3="">Transacation History
+  
+</div>
+{% comment %} <form id="form" method="get" action="/search">
+  <input type="search" id="query" name="query" placeholder="Search by amount ..." style="background-color:	#e6e6e6; border: 2px solid #008CBA;">
+  <button style=" background-color: #e6e6e6; color: black; border: 2px solid #008CBA;">Search</button>
+</form> {% endcomment %}
+<table class="table table-hover text-nowrap">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Amount</th>
+        <th>ExpDate</th>
+        <th>Transaction Type</th>
+        <th>Payment method</th>
+        <th>Discription</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for expense in expenses %}
+        <tr>
+          <td> {{ forloop.counter0 }} </td>
+          <td> {{ expense.amount }} </td>
+          <td> {{ expense.expDateTime }} </td>
+          <td><span class="tag tag-success"></span> {{ expense.transactionType }} </td>
+          <td><span class="tag tag-success"></span> {{ expense.paymentMethod }} </td>
+          <td><span class="tag tag-success"></span> {{ expense.category.categoryname }} </td>
+          <td><div class="dropdown">
+            <a  style="
+            background-color: #007bff;
+        " class="dropdown-item" href="{% url 'update_project' expense.id %}"
+              ><i class="bx bx-edit-alt me-1" ></i><b> Edit<b></a
+            >
+            <a  style="
+            background-color: red;" class="dropdown-item" href="{% url 'delete_project' expense.id %}"
+              ><i class="bx bx-trash me-1"></i><b> Delete</b></a
+            ></div>
+         </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </table>
+
+
+  <a href="{% url 'dashboard' %}" class="button">Back to Dashboard</a>
+  <style>
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 20px;
+    }
+    
+    .button:hover {
+      background-color: #0069d9;
+    }
+  </style>

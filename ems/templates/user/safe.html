@@ -1,0 +1,94 @@
+{% comment %} Safe To Spend display page {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/icheck/icheck-bootstrap.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin/adminlte.min.css' %}">
+</head>
+<body>
+	<div class="spend-block" style="
+    padding-left: 600px;
+    padding-top: 140px;
+    padding-bottom: 70px;">	
+	<h2>Safe to Spend</h2>
+	<p class="safe-amount">{{ safe_amount }} /-</p>
+  </div>
+  <style>
+      .safe-amount {
+        color: rgb(52, 235, 70);
+        font-size: 60px;
+      }
+      .income-block, .expense-block, .safe-block {
+        flex-basis: 45%;
+        text-align: center;
+      }
+  </style>
+  <style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #007bff;
+		}
+		.container {
+			width: 80%;
+			margin: auto;
+			background-color: #fff;
+			padding: 20px;
+			box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+			border-radius: 10px;
+		}
+		h1 {
+			text-align: center;
+			color: #333;
+		}
+		p {
+			color: #555;
+			line-height: 1.5;
+			font-size: 16px;
+			text-align: justify;
+		}
+		.highlight {
+			color: #007bff;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Safe to Spend - A Budgeting Method</h1>
+		<p>Safe to Spend is a budgeting method that can help you achieve financial stability by allocating a specific portion of your income towards discretionary spending. The basic idea is to <span class="highlight">save 10% of your income</span> towards important expenses such as rent, bills, groceries, and savings. The remaining 10% can then be allocated towards discretionary spending such as entertainment, dining out, or hobbies. This can help you avoid overspending and ensure that you have enough money set aside for important expenses.</p>
+		<p>Implementing the Safe to Spend method is simple. You just need to keep track of your income and expenses and allocate the appropriate amount towards each category. By doing this, you can achieve a better balance between your spending and saving, and ensure that you are on track to achieving your financial goals.</p>
+		<p>So, if you're looking for a simple yet effective way to manage your finances, give the Safe to Spend method a try. You might be surprised at how much it can help!</p>
+	</div>
+	<a href="{% url 'dashboard' %}" class="button">Back to Dashboard</a>
+	<style>
+	  .button {
+		display: inline-block;
+		padding: 10px 20px;
+		background-color: #007bff;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 5px;
+		font-size: 20px;
+	  }
+	  
+	  .button:hover {
+		background-color: #0069d9;
+	  }
+	</style>
+
+</body>
+</html>

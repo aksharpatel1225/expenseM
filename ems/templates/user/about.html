@@ -1,0 +1,79 @@
+{% comment %} About us page {% endcomment %}
+  {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Importance of Personal Expense Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    p {
+      margin-top: 30px;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    
+    .image-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    
+    img {
+      width: 400px;
+      height: auto;
+      border-radius: 10px;
+    }
+    
+    .cta {
+      display: block;
+      text-align: center;
+      margin-top: 50px;
+      font-size: 20px;
+      color: white;
+      background-color:#007bff ;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    
+    .cta:hover {
+      background-color: dakblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-header" style="background-color: #007bff;font-size: 50px;padding: 30px;text-align: center;" ;="" <h3="">About Expense Mananager</div>
+  <h1>The Importance of a Personal Expense Manager</h1>
+  
+  <p>Managing your personal finances can be a daunting task, especially if you have multiple sources of income, multiple bills to pay, and various expenses to keep track of. This is where a personal expense manager comes in handy.</p>
+  
+  <div class="image-container">
+    <img src="https://play-lh.googleusercontent.com/suZk_SQpTlqm0OqfDfgv3NQuhTDXsUy1qSasQw8n7rkRiXe0n39Z1LBzzyTEooFRQiYZ">
+  </div>
+  
+  <p>A personal expense manager is a tool that helps you keep track of your income, expenses, and bills in one place. It allows you to create a budget, set financial goals, and track your progress over time.</p>
+  
+  <p>By using a personal expense manager, you can:</p>
+  
+  <ul>
+    <li>See where your money is going and identify areas where you can cut back</li>
+    <li>Stay on top of your bills and avoid late fees</li>
+    <li>Make informed financial decisions based on your spending habits</li>
+    <li>Set and achieve financial goals, such as saving for a down payment on a house or paying off debt</li>
+    <li>Reduce stress and anxiety related to managing your finances</li>
+  </ul>
+  
+  <p>Overall, a personal expense manager is an essential tool for anyone who wants to take control of their finances and achieve financial stability. If you don't have one already, consider researching different options and finding one that works for you.</p>
+  
+  <a href="{% url 'dashboard' %}"class="cta">Get Started Today</a>
+</body>
+</html>

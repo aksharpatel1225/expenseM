@@ -1,0 +1,557 @@
+{% comment %} Home page {% endcomment %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expense| Dashboard</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/icheck/icheck-bootstrap.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin/adminlte.min.css' %}">
+  </head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        {% comment %} <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a> {% endcomment %}
+    </ul>  
+    <!-- Right navbar links -->
+    <div class="form-inline">
+      <div class="input-group" data-widget="sidebar-search">
+       
+        {% comment %} <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search"> {% endcomment %}
+        <div class="input-group-append">
+          {% comment %} <button class="btn btn-sidebar">
+            <i class="fas fa-search fa-fw"></i>
+          </button> {% endcomment %}
+        </div>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/user/about/" class="brand-link">
+      <img src="https://play-lh.googleusercontent.com/suZk_SQpTlqm0OqfDfgv3NQuhTDXsUy1qSasQw8n7rkRiXe0n39Z1LBzzyTEooFRQiYZ" alt="logo"style="width:50px;">
+      <span class="brand-text font-weight-light">Expense Manager</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="{% url 'profile' %}" class="nav-link active">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <p>
+                Profile
+              </p>
+            </a>
+            <a href="{% url 'add' %}" class="nav-link active" style="
+            margin-top: 20px;">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+              <p>
+                Add Income/Expense
+              </p>
+            </a> 
+
+            <a href="{% url 'safe' %}" class="nav-link active" style="
+            margin-top: 20px;">
+              <i class="fa fa-inr" aria-hidden="true"></i>
+              <p>
+                Safe To Spend
+              </p>
+            </a> 
+            <a href="{% url 'calender' %}" class="nav-link active" style="
+            margin-top: 20px;">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+            <p>
+                  calender
+            </p> 
+          
+           
+            <a href="{% url 'category' %}" class="nav-link active" style="
+            margin-top: 20px;">
+              <i class="fa fa-tags" aria-hidden="true"></i>
+              <p>
+                category
+              </p>
+            </a> 
+            <a href="{% url 'analyse' %}" class="nav-link active" style="
+            margin-top: 20px;">
+              <i class="fa fa-bar-chart" aria-hidden="true"></i>
+              <p>
+                Analyse
+              </p>
+            <a href="{% url 'template' %}" class="nav-link active" style="
+            margin-top: 20px;">
+              <i class="fa fa-reply" aria-hidden="true"></i>
+              <p>
+                Transaction History
+              </p>
+            </a>
+            </a>  
+            </a> 
+            <a href="{% url 'about' %}" class="nav-link active" style="
+            margin-top: 200px;">
+              <i class="fa fa-info-circle" aria-hidden="true"></i>
+              <p>
+                    About Us
+              </p>
+            
+            <a href="{% url 'logout' %}" class="nav-link active" style="
+            margin-top: 20px;">
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+               <p>
+                    logout
+              </p>
+            </a>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">welcome,{{user.username}}</h1>
+             <!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <div class="income-expense-wrapper">
+      <div class="income-block">
+        <h2>Income</h2>
+        <p class="income-amount">{{ user_income }} /-</p>
+      </div>
+      <div class="spend-block">
+        <h2>Safe to Spend</h2>
+        <p class="safe-amount">{{ safe_amount }} /-</p>
+      </div>
+      <div class="expense-block">
+        <h2>Expense</h2>
+        <p class="expense-amount">{{ user_expenses }} /-</p>
+      </div>
+    </div>
+    <style>
+      .income-expense-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 100%;
+      }
+    
+      .income-block, .expense-block, .safe-block {
+        flex-basis: 45%;
+        text-align: center;
+      }
+    
+      .income-amount, .expense-amount,.safe-amount {
+        font-size: 28px;
+        font-weight: bold;
+        margin: 0;
+      }
+      .safe-amount {
+        color: rgb(0, 255, 26);
+      }
+    
+      .income-amount {
+        color: rgb(0, 0, 0);
+      }
+    
+      .expense-amount {
+        color: rgb(250, 61, 61);
+      }
+    </style>
+    <div class="income-expense-wrapper">
+      <div class="income-block">
+    <a href="{% url 'add' %}" class="nav-link active">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      <p>
+        Add Income
+      </p>
+    </a>
+</div>
+    <div class="expense-block">
+    <a href="{% url 'add' %}" class="nav-link active">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      <p>
+        Add Expense
+      </p>
+    </a>
+  </div>
+</div>
+<h1 class="m-0">Current Month</h1>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <ul class="pagination pagination-month justify-content-center">
+          
+          <li class="page-item">
+              <a class="page-link" href="#">
+                  <p class="page-month">Jan</p>
+                  <p class="page-year">2023</p>
+              </a>
+          </li>
+          <li class="page-item ">
+              <a class="page-link" href="#">
+                  <p class="page-month">Feb</p>
+                  <p class="page-year">2023</p>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="page-link" href="#">
+                  <p class="page-month">Mar</p>
+                  <p class="page-year">2023</p>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="page-link" a href="{% url 'calender' %}" class="nav-link active">
+                  <p class="page-month">Apr</p>
+                  <p class="page-year">2023</p>
+              </a>
+          </li>
+          <li class="page-item active">
+              <a class="page-link" href="{% url 'calender' %}" class="nav-link active">
+                  <p class="page-month">May</p>
+                  <p class="page-year">2023</p>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="page-link" href="{% url 'calender' %}" class="nav-link active">
+                  <p class="page-month">Jun</p>
+                  <p class="page-year">2023</p>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="page-link" href="{% url 'calender' %}" class="nav-link active">
+                  <p class="page-month">Jul</p>
+                  <p class="page-year">2023</p>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="page-link" href="{% url 'calender' %}" class="nav-link active">
+                  <p class="page-month">Aug</p>
+                  <p class="page-year">2023</p>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="page-link" href="{% url 'calender' %}" class="nav-link active">
+                  <p class="page-month">Sep</p>
+                  <p class="page-year">2023</p>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="page-link" href="{% url 'calender' %}" class="nav-link active">
+                  <p class="page-month">Oct</p>
+                  <p class="page-year">2023</p>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="page-link" href="{% url 'calender' %}" class="nav-link active">
+                  <p class="page-month">Nov</p>
+                  <p class="page-year">2023</p>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="page-link" href="{% url 'calender' %}" class="nav-link active">
+                  <p class="page-month">Dec</p>
+                  <p class="page-year">2023</p>
+              </a>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- /.content-header -->
+    <h1 class="m-0">Income/Expenses</h1>
+    <table class="table table-hover text-nowrap">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Amount</th>
+          <th>ExpDate</th>
+          <th>Transaction Type</th>
+          <th>Payment method</th>
+          <th>Discription</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for expense in expenses %}
+          <tr>
+            <td> {{ forloop.counter0 }} </td>
+            <td> {{ expense.amount }} </td>
+            <td> {{ expense.expDateTime }} </td>
+            <td><span class="tag tag-success"></span> {{ expense.transactionType }} </td>
+            <td><span class="tag tag-success"></span> {{ expense.paymentMethod }} </td>
+            <td><span class="tag tag-success"></span> {{ expense.category.categoryname }} </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <!-- Main content -->
+  
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper 
+  <!Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+{% comment %} footer {% endcomment %}
+<style>
+  .site-footer
+{
+  background-color:#26272b;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#737373;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#737373
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{  
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{ 
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+.col-md-3 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding-left: 27pc;
+}
+</style>
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <h6>About</h6>
+        <p class="text-justify">Expense Mangment <i>Personal Expense Tracker </i> Personal finance management is an important part of people’s lives. However, everyone does not have the knowledge or time to manage their finances in a proper manner.Expense Manager is a web app that helps to keep an accurate record of your money inflow and outflow. </p>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <div class="category">
+        <h6>Categories</h6>
+        <ul class="footer-links">
+          <li><a href="http://scanfcode.com/category/c-language/">Income</a></li>
+          <li><a href="http://scanfcode.com/category/front-end-development/">Expense</a></li>
+          <li><a href="http://scanfcode.com/category/back-end-development/">spend Ratio</a></li>
+          <li><a href="http://scanfcode.com/category/java-programming-language/">Analyse</a></li>
+          <li><a href="http://scanfcode.com/category/android/"></a>Tracker</li>
+          <li><a href="http://scanfcode.com/category/templates/">Calender</a></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-12">
+     <a href="#">CK</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- ./wrapper -->
+  <!-- jQuery -->
+  <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+  <!-- Bootstrap 4 -->
+  <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+  <!-- AdminLTE App -->
+  <script src="{% static 'js/admin/adminlte.min.js' %}"></script>
+</body>
+</html>
